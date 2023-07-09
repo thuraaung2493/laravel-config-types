@@ -2,18 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Thuraaung\Namespace\Tests;
+namespace Thuraaung\ConfigTypes\Tests;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Facade;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Thuraaung\ConfigTypes\ConfigTypesServiceProvider;
+use Thuraaung\ConfigTypes\Facades\Config;
 
 final class TestCase extends BaseTestCase
 {
     protected function getPackageProviders($app): array
     {
         return [
-
+            ConfigTypesServiceProvider::class,
         ];
     }
 
@@ -24,7 +26,7 @@ final class TestCase extends BaseTestCase
     protected function getPackageAliases($app): array
     {
         return [
-
+            'ConfigResolver' => Config::class,
         ];
     }
 }

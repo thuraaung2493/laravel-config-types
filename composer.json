@@ -1,6 +1,6 @@
 {
-  "name": "thuraaung2493/package-name",
-  "description": "Package description.",
+  "name": "thuraaung2493/laravel-config-types",
+  "description": "A small wrapper types class for Laravel config.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -13,16 +13,17 @@
   ],
   "autoload": {
     "psr-4": {
-      "Thuraaung\\Namespace\\": "src/"
+      "Thuraaung\\ConfigTypes\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Thuraaung\\Namespace\\Tests\\": "tests/"
+      "Thuraaung\\ConfigTypes\\Tests\\": "tests/"
     }
   },
   "require": {
     "php": "^8.2",
+    "illuminate/support": "^10.14",
     "nunomaduro/mock-final-classes": "^1.2"
   },
   "require-dev": {
@@ -40,6 +41,16 @@
     "allow-plugins": {
       "pestphp/pest-plugin": true,
       "php-http/discovery": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Thuraaung\\ConfigTypes\\ConfigTypesServiceProvider"
+      ],
+      "aliases": [
+        "Thuraaung\\ConfigTypes\\Facades\\Config"
+      ]
     }
   },
   "scripts": {
