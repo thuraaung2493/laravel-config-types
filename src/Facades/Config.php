@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Facade;
 use Thuraaung\ConfigTypes\ConfigResolver;
 
 /**
+ * @method static self setInitKey(string $initKey)
  * @method static string string(string $key, string|null $default = null)
  * @method static int number(string $key, int|null $default = null)
  * @method static float float(string $key, float|null $default = null)

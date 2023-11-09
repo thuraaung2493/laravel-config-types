@@ -11,6 +11,20 @@ it('can create a config class', function (): void {
         ->toBeInstanceOf(ConfigResolver::class);
 });
 
+it('should set default file name', function (): void {
+    /** @var ConfigResolver */
+    $config = app(ConfigResolver::class);
+    $config->setInitKey('app');
+
+    Config::set('app.name', 'Laravel Config Types');
+
+    expect($config->string('name'))
+        ->toBeString();
+
+    expect($config->string('name'))
+        ->toBe('Laravel Config Types');
+});
+
 it('should return string value', function (): void {
     /** @var ConfigResolver */
     $config = app(ConfigResolver::class);

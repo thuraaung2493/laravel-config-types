@@ -6,6 +6,19 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config as DefaultConfig;
 use Thuraaung\ConfigTypes\Facades\Config;
 
+
+it('should set default file name', function (): void {
+    DefaultConfig::set('app.name', 'Laravel Config Types');
+
+    Config::setInitKey('app');
+
+    expect(Config::string('name'))
+        ->toBeString();
+
+    expect(Config::string('name'))
+        ->toBe('Laravel Config Types');
+});
+
 it('should return string value', function (): void {
     DefaultConfig::set('app', 'Laravel Config Types');
 
