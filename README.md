@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-composer require thuraaung2493/laravel-config-types:dev-main
+composer require thuraaung2493/laravel-config-types
 ```
 
 ## Usage

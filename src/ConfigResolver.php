@@ -14,7 +14,7 @@ final readonly class ConfigResolver
     ) {
     }
 
-    public function string(string $key, string|null $default = null): string|null
+    public function string(string $key, string|null $default = null): string
     {
         return (string) $this->config->get(
             key: $key,
@@ -22,7 +22,7 @@ final readonly class ConfigResolver
         );
     }
 
-    public function number(string $key, int|null $default = null): int|null
+    public function number(string $key, int|null $default = null): int
     {
         return (int) $this->config->get(
             key: $key,
@@ -30,7 +30,7 @@ final readonly class ConfigResolver
         );
     }
 
-    public function float(string $key, float|null $default = null): float|null
+    public function float(string $key, float|null $default = null): float
     {
         return (float) $this->config->get(
             key: $key,
@@ -38,7 +38,7 @@ final readonly class ConfigResolver
         );
     }
 
-    public function boolean(string $key, bool|null $default = null): bool|null
+    public function boolean(string $key, bool|null $default = null): bool
     {
         return (bool) $this->config->get(
             key: $key,
@@ -46,7 +46,7 @@ final readonly class ConfigResolver
         );
     }
 
-    public function array(string $key, array|null $default = null): array|null
+    public function array(string $key, array|null $default = null): array
     {
         return (array) $this->config->get(
             key: $key,
