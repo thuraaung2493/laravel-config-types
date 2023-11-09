@@ -22,6 +22,10 @@ it('should return string value', function (): void {
 
     expect($config->string('app'))
         ->toBe('Laravel Config Types');
+
+    expect($config->string('apps'))
+        ->toBeString()
+        ->toBeEmpty();
 });
 
 it('should return int value', function (): void {
@@ -35,6 +39,10 @@ it('should return int value', function (): void {
 
     expect($config->number('age'))
         ->toBe(30);
+
+    expect($config->number('ages'))
+        ->toBeInt()
+        ->toBe(0);
 });
 
 it('should return float value', function (): void {
@@ -48,6 +56,10 @@ it('should return float value', function (): void {
 
     expect($config->float('version'))
         ->toBe(1.0);
+
+    expect($config->float('versions'))
+        ->toBeFloat()
+        ->toBe(0.0);
 });
 
 it('should return boolean value', function (): void {
@@ -57,10 +69,14 @@ it('should return boolean value', function (): void {
     Config::set('is_production', true);
 
     expect($config->boolean('is_production'))
-        ->toBeTrue();
+        ->toBeBool();
 
     expect($config->boolean('is_production'))
-        ->toBe(true);
+        ->toBeTrue();
+
+    expect($config->boolean('is_productions'))
+        ->toBeBool()
+        ->toBeFalse();
 });
 
 it('should return array value', function (): void {
@@ -74,6 +90,10 @@ it('should return array value', function (): void {
 
     expect($config->array('person'))
         ->toEqual(['name' => 'Thura', 'age' => 30]);
+
+    expect($config->array('persons'))
+        ->toBeArray()
+        ->toBe([]);
 });
 
 it('should return collection value', function (): void {
@@ -87,4 +107,8 @@ it('should return collection value', function (): void {
 
     expect($config->collect('person'))
         ->toEqual(collect(['name' => 'Thura', 'age' => 30]));
+
+    expect($config->collect('persons'))
+        ->toBeInstanceOf(Collection::class)
+        ->toEqual(collect([]));
 });

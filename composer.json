@@ -1,6 +1,6 @@
 {
   "name": "thuraaung2493/laravel-config-types",
-  "description": "A small wrapper types class for Laravel config.",
+  "description": "A small wrapper types safe class for Laravel config.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -57,18 +57,12 @@
     "post-autoload-dump": [
       "@php vendor/bin/testbench package:discover --ansi"
     ],
-    "pint": [
-      "./vendor/bin/pint"
-    ],
-    "analyse": [
-      "./vendor/bin/phpstan analyse --memory-limit=2G"
-    ],
-    "test": [
-      "./vendor/bin/pest --parallel"
-    ],
+    "lint": "pint",
+    "type-check": "phpstan analyse --ansi --memory-limit=-1 --debug",
+    "test": "pest --colors=always --parallel --processes=3",
     "prepare": [
       "@pint",
-      "@analyse",
+      "@type-check",
       "@test"
     ]
   },
